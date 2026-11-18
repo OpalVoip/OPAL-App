@@ -62,7 +62,17 @@ if errorlevel 1 exit /b 1
 
 echo ==========================================================================
 echo Configuring the application with "%GENERATOR%"
-cmake -S . -B build\App -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DAPP_PTLIB_DIR="%PTLIB_SRC%" -DAPP_OPAL_DIR="%OPAL_SRC%"
+rem Ports such as OpenSSL are installed into the library build tree. This
+rem application has no vcpkg manifest, so point the toolchain at that tree.
+set "VCPKG_INSTALLED="
+if exist "%OPAL_SRC%\build\vcpkg_installed\." (
+  set VCPKG_INSTALLED=-DVCPKG_INSTALLED_DIR="%OPAL_SRC%\build\vcpkg_installed" -DVCPKG_TARGET_TRIPLET=x64-windows
+  echo vcpkg: %OPAL_SRC%\build\vcpkg_installed
+) else if exist "%PTLIB_SRC%\build\vcpkg_installed\." (
+  set VCPKG_INSTALLED=-DVCPKG_INSTALLED_DIR="%PTLIB_SRC%\build\vcpkg_installed" -DVCPKG_TARGET_TRIPLET=x64-windows
+  echo vcpkg: %PTLIB_SRC%\build\vcpkg_installed
+)
+cmake -S . -B build\App -G "%GENERATOR%" -A x64 %TOOLCHAIN% %VCPKG_INSTALLED% -U OPENSSL_* -DAPP_PTLIB_DIR="%PTLIB_SRC%" -DAPP_OPAL_DIR="%OPAL_SRC%"
 if errorlevel 1 exit /b 1
 
 echo.
