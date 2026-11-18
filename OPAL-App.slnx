@@ -1,0 +1,168 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="MinSizeRel" />
+    <BuildType Name="RelWithDebInfo" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Configure.vcxproj" Id="642ce41d-be3f-8f67-0eba-5b76893a7ff7" />
+  <Folder Name="/PTLib/">
+    <Project Path="build/ptlib/ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="81a4e5d1-b6b8-3c2d-93e2-9627f0fb08a1">
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <BuildDependency Project="build/ptlib/ptlib.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="22b1eb6b-8ff9-304f-b6ae-f2358fa15fe2">
+      <BuildDependency Project="build/ptlib/ALL_BUILD.vcxproj" />
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ecf91447-7797-345f-83f3-0eb9f0b9f551">
+      <BuildDependency Project="Configure.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/both.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eac6e280-5af6-3384-9306-fdc460df003b">
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/debug.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="69f8a5f1-f9e4-36c0-810b-480ecf69610c">
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/ptlib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="30ea66a4-27ac-3991-9099-4355fc26b044">
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/ptlib/uninstall.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83df00c9-799b-317b-be63-c387294b2407">
+      <BuildDependency Project="build/ptlib/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/OPAL/">
+    <Project Path="build/opal/ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="629deb14-3812-39c7-8fcd-1b0ea87640ed">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/gsmamrcodec_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/h263_ffmpeg_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/h264_ffmpeg_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/h265_ffmpeg_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/iSAC_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/ima_adpcm_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/mpeg4_ffmpeg_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/opal.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/openh264_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/opus_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/sample_lid_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/silk_ptplugin.vcxproj" />
+      <BuildDependency Project="build/opal/plugins/vp8_webm_ptplugin.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eb390bb5-b116-3507-bcda-de33672e4e95">
+      <BuildDependency Project="build/opal/ALL_BUILD.vcxproj" />
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b4314b00-c36f-33df-ae30-fefdf979fb7b">
+      <BuildDependency Project="Configure.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/both.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ab19c257-7adc-33bb-a40f-48dc5f7fbb98">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/debug.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e6d811ec-7466-3666-92d6-a59c8be1c4f6">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/gsmamrcodec_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="464185a5-7442-3ab8-a23f-e11e7da03175">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/h263_ffmpeg_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="61c03b55-cb8f-3efc-afc5-d32efcf7da2a">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/h264_ffmpeg_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5a06f53d-569d-3e97-be1c-392819776470">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/h265_ffmpeg_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1c6e30fd-10c0-3486-98fd-84169d4f7489">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/iSAC_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7468c973-e676-31e0-9f4a-a7bb6e5faf40">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/ima_adpcm_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c7b81d57-802d-3774-8303-2214fc28dc4f">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/mpeg4_ffmpeg_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5c7e491a-6fe0-3ccb-bb06-2bc815119ab4">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/opal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d88a7615-4fcf-3b41-91b8-dbf85ae53a89">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <BuildDependency Project="build/ptlib/ptlib.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/openh264_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="10e15baf-9742-3ac9-bd4a-d9882be73b7c">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/opus_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a46f0883-c2f9-3786-a0de-141ac67e151e">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/sample_lid_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="255c539f-8ecd-33ad-a1e3-721b9844188e">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/silk_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d953f6d8-b96a-3fb5-869e-b8aa8e43affa">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/uninstall.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5daa38dc-56d1-3838-81a0-9553dc64de51">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="Debug|*" Project="false" />
+      <Build Solution="Release|*" Project="false" />
+      <Build Solution="MinSizeRel|*" Project="false" />
+      <Build Solution="RelWithDebInfo|*" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="build/opal/plugins/vp8_webm_ptplugin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7bb64bbc-332a-32fb-859f-268bc96c2f2e">
+      <BuildDependency Project="build/opal/ZERO_CHECK.vcxproj" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+</Solution>

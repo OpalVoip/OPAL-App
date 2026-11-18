@@ -1,0 +1,6 @@
+[submodule "ptlib"]
+	path = ptlib
+	url = https://github.com/opalvoip/ptlib.git
+[submodule "opal"]
+	path = opal
+	url = https://github.com/opalvoip/opal.git
