@@ -26,6 +26,8 @@
 #include <ptlib.h>
 #include <opal/console_mgr.h>
 
+#include "App.h"
+
 
 extern const char Manufacturer[] = "Vox Gratia";
 extern const char Application[] = "Sample App";
@@ -51,7 +53,7 @@ bool MyManager::Initialise(PArgList & args, bool verbose, const PString &)
   if (!OpalManagerCLI::Initialise(args, verbose, OPAL_PREFIX_PCSS":"))
     return false;
 
-  SetAutoAnswer(LockedStream(*this), verbose, args, "auto-answer");
+  //SetAutoAnswer(LockedStream(*this), verbose, args, "auto-answer");
 
   m_cli->SetPrompt("OPAL> ");
 

@@ -27,8 +27,8 @@ cmake -S opal -B build/opal -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DOPAL_PTLIB_DIR
 if errorlevel 1 exit /b 1
 
 echo ==========================================================================
-echo Configuring App with "%GENERATOR%"
-cmake -S App -B build/App -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DPTLIB_PREFIX_DIR=build/ptlib -DOPAL_PREFIX_DIR=build/opal
+echo Configuring the application with "%GENERATOR%"
+cmake -S . -B build/App -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DAPP_PTLIB_DIR=build/ptlib -DAPP_OPAL_DIR=build/opal
 if errorlevel 1 exit /b 1
 
 echo.
