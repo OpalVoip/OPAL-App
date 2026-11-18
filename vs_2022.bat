@@ -17,15 +17,13 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if exist CMakeLists.txt goto have_cmake
 if not exist "%~dp0..\opal\cmake\OPALNewApp.cmake" (
   echo The OPAL template was not found at %~dp0..\opal\cmake\OPALNewApp.cmake
   exit /b 1
 )
 echo Creating CMakeLists.txt
-cmake -DOPAL_NEW_APP_SOURCES=App -P "%~dp0..\opal\cmake\OPALNewApp.cmake"
+cmake -DOPAL_NEW_APP_FORCE=ON -DOPAL_NEW_APP_SOURCES=App -P "%~dp0..\opal\cmake\OPALNewApp.cmake"
 if errorlevel 1 exit /b 1
-:have_cmake
 
 set "PTLIB_DIR=%~dp0..\ptlib\build_2022"
 set "OPAL_DIR=%~dp0..\opal\build_2022"
