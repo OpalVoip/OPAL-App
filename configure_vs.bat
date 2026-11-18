@@ -16,19 +16,53 @@ if defined VCPKG_ROOT if exist "%VCPKG_ROOT%\scripts\buildsystems\vcpkg.cmake" (
 )
 if not defined TOOLCHAIN echo VCPKG_ROOT is not set. CMake will look for vcpkg.
 
+rem The template writes the checkout locations into CMakeLists.txt.
+if not exist CMakeLists.txt (
+  echo CMakeLists.txt was not found.
+  echo Create it from the OPAL template:
+  echo   cmake -DOPAL_NEW_APP_SOURCES=App -P ..\opal\cmake\OPALNewApp.cmake
+  exit /b 1
+)
+set "PTLIB_SRC="
+set "OPAL_SRC="
+for /f "usebackq delims=" %%L in (`findstr /B /C:"set(APP_PTLIB_DIR" CMakeLists.txt`) do (
+  for /f tokens^=2^ delims^=^" %%A in ("%%L") do set "PTLIB_SRC=%%A"
+)
+for /f "usebackq delims=" %%L in (`findstr /B /C:"set(APP_OPAL_DIR" CMakeLists.txt`) do (
+  for /f tokens^=2^ delims^=^" %%A in ("%%L") do set "OPAL_SRC=%%A"
+)
+if not defined PTLIB_SRC (
+  echo APP_PTLIB_DIR was not found in CMakeLists.txt.
+  exit /b 1
+)
+if not defined OPAL_SRC (
+  echo APP_OPAL_DIR was not found in CMakeLists.txt.
+  exit /b 1
+)
+if not exist "%PTLIB_SRC%\CMakeLists.txt" (
+  echo PTLib was not found at %PTLIB_SRC%
+  exit /b 1
+)
+if not exist "%OPAL_SRC%\CMakeLists.txt" (
+  echo OPAL was not found at %OPAL_SRC%
+  exit /b 1
+)
+
 echo ==========================================================================
-echo Configuring PTLib/OPAL with "%GENERATOR%"
-cmake -S ptlib -B build/ptlib -G "%GENERATOR%" -A x64 %TOOLCHAIN%
+echo Configuring PTLib with "%GENERATOR%"
+echo PTLib: %PTLIB_SRC%
+cmake -S "%PTLIB_SRC%" -B "%PTLIB_SRC%\build" -G "%GENERATOR%" -A x64 %TOOLCHAIN%
 if errorlevel 1 exit /b 1
 
 echo ==========================================================================
 echo Configuring OPAL with "%GENERATOR%"
-cmake -S opal -B build/opal -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DOPAL_PTLIB_DIR=build/ptlib
+echo OPAL: %OPAL_SRC%
+cmake -S "%OPAL_SRC%" -B "%OPAL_SRC%\build" -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DOPAL_PTLIB_DIR="%PTLIB_SRC%\build"
 if errorlevel 1 exit /b 1
 
 echo ==========================================================================
 echo Configuring the application with "%GENERATOR%"
-cmake -S . -B build/App -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DAPP_PTLIB_DIR=build/ptlib -DAPP_OPAL_DIR=build/opal
+cmake -S . -B build\App -G "%GENERATOR%" -A x64 %TOOLCHAIN% -DAPP_PTLIB_DIR="%PTLIB_SRC%" -DAPP_OPAL_DIR="%OPAL_SRC%"
 if errorlevel 1 exit /b 1
 
 echo.
