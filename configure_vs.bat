@@ -12,7 +12,7 @@ call :generator "%~1"
 
 rem Prefer a current vcpkg. Visual Studio 2022's bundled scripts do not
 rem implement REMOVE_DUPLICATES and fail while building expat.
-set "VCPKG_DIR=C:\src\vcpkg"
+set "VCPKG_DIR=..\vcpkg"
 if defined VCPKG_ROOT if exist "%VCPKG_ROOT%\scripts\cmake\vcpkg_host_path_list.cmake" (
   findstr /C:"REMOVE_DUPLICATES" "%VCPKG_ROOT%\scripts\cmake\vcpkg_host_path_list.cmake" >nul
   if not errorlevel 1 set "VCPKG_DIR=%VCPKG_ROOT%"
